@@ -28,7 +28,7 @@ def get_connection_from_db(id):
   global conn, cur
   cur =conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
     
-  cur.execute(('SELECT * FROM jobs WHERE id = :val'), val = id)
+  cur.execute(('SELECT * FROM jobs WHERE id = %s'), (id,))
   
   job = []
   for row in cur.fetchall():
