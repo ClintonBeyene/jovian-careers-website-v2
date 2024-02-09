@@ -1,21 +1,17 @@
 import psycopg2
 import psycopg2.extras
+import os
 
-hostname = 'dpg-cn1j990l5elc73d919g0-a.singapore-postgres.render.com'
-database = 'joviancareers'
-username = 'joviancareers_user'
-pwd = 'OyQubbAArOP7MUYvAQGAGTNsWCIXvu7U'
-port_id = 5432
 cur = None
 conn = None
 
 def get_connection():
   conn = psycopg2.connect(
-  host = hostname,
-  dbname = database,
-  user = username,
-  password = pwd,
-  port = port_id
+  host = os.environ['HOST_NAME'],
+  dbname = os.environ['DATABASE'],
+  user = os.environ['USERNAME'],
+  password = 'OyQubbAArOP7MUYvAQGAGTNsWCIXvu7U',
+  port = os.environ['PORT_ID']
 )
   
   cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
