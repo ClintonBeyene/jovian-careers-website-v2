@@ -16,7 +16,11 @@ def job_lists():
 @app.route("/job/<id>")
 def show_job(id):
   job = get_connection_from_db(id)
-  return jsonify(job)
+
+  if not job:
+    return "Not Found", 404
+  else:
+    return render_template("jobpage.html", job=job)
 
 if __name__ == '__main__':
   app.run(host='0.0.0.0', debug=True)

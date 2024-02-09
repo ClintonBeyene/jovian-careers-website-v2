@@ -38,6 +38,7 @@ def get_connection_from_db(id):
   cur.execute(('SELECT * FROM jobs WHERE id = %s'), (id,))
   
   job = []
+  
   for row in cur.fetchall():
     job.append(dict(row))
   
