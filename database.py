@@ -24,3 +24,13 @@ def get_connection():
     jobs.append(dict(row))
   return jobs
   
+def get_connection_from_db(id):
+  with psycopg2.connect() as conn:
+    with conn.cursor() as cur:
+      cur.execute('SELECT * FROM jobs WHERE id = %s', (id,))
+      row = cur.fetchone()
+      if len(row) == 0:
+        return None
+      else:
+        return dict(row[0])
+      
