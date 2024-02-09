@@ -6,6 +6,7 @@ cur = None
 conn = None
 
 def get_connection():
+  global conn, cur
   conn = psycopg2.connect(
   host = os.environ['HOST_NAME'],
   dbname = os.environ['DATABASE'],
