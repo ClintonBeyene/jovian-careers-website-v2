@@ -14,7 +14,7 @@ def job_lists():
   return jsonify(jobs)
 
 @app.route("/job/<id>")
-def show_jobs(id):
+def show_job(id):
   job = get_connection_from_db(id)
   return jsonify(job)
 

@@ -25,12 +25,22 @@ def get_connection():
   return jobs
   
 def get_connection_from_db(id):
-  with psycopg2.connect() as conn:
-    with conn.cursor() as cur:
-      cur.execute('SELECT * FROM jobs WHERE id = %s', (id,))
-      row = cur.fetchone()
-      if len(row) == 0:
-        return None
-      else:
-        return dict(row[0])
+  global conn, cur
+  conn = psycopg2.connect(
+  host = os.environ['HOST_NAME'],
+  dbname = os.environ['DATABASE'],
+  user = os.environ['USERNAME'],
+  password = 'OyQubbAArOP7MUYvAQGAGTNsWCIXvu7U',
+  port = os.environ['PORT_ID']
+)
+  cur =conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+    
+  cur.execute('SELECT * FROM jobs WHERE id = %s', (id,))
+  
+  row = cur.fetchone()
+  
+  if len(row) == 0:
+    return None
+  else:
+    return dict(row[0])
       
