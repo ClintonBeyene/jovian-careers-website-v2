@@ -8,15 +8,15 @@
     {% include 'banner.html' %}
     <div class="container"
       <h3>Title</h3>
-      <p>{{ job.title }}</p>
+      <p>{{ job['title'] }}</p>
       <h3>Location</h3>
-      <p>{{ job.location }}</p>
+      <p>{{ job['location'] }}</p>
       <h3>Salary</h3>
-      <p>{{ job.currency }}{{ job.salary }}</p>
+      <p>{{ job['currency'] }}{{ job['salary'] }}</p>
       <h3>Responsibilities</h3>
-      <p>{{ job.responsibilities }}</p>
+      <p>{{ job['reponsibilities'] }}</p>
       <h3>Requirements</h3>
-      <p>{{ job.requirements }}</p>
+      <p>{{ job['requirements'] }}</p>
     </div>
     {% include 'footer.html' %}
   </body>
