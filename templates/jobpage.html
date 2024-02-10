@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{{ job['title'] }} - Jovian Careers</title>
+    <title>{{ job[0]['title'] }} - Jovian Careers</title>
   </head>
   <body>
     {% include 'nav.html' %}
     {% include 'banner.html' %}
     <div class="container">
-      <h1 class="text-center mt-2 mb-4">{{ job['title'] }}</h1>
+      <h1 class="text-center mt-2 mb-4">{{ job[0]['title'] }}</h1>
       <h3>Location</h3>
-      <p>{{ job['location'] }}</p>
+      <p>{{ job[0]['location'] }}</p>
       <h3>Salary</h3>
-      <p>{{ job['currency'] }}{{ job['salary'] }}</p>
+      <p>{{ job[0]['currency'] }}{{ job[0]['salary'] }}</p>
       <h3>Responsibilities</h3>
-      <p>{{ job['responsibilities'] }}</p>
+      <p>{{ job[0]['responsibilities'] }}</p>
       <h3>Requirements</h3>
-      <p>{{ job['requirements'] }}</p>
+      <p>{{ job[0]['requirements'] }}</p>
     </div>
     {% include 'footer.html' %}
   </body>
